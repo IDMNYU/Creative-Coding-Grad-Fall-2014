@@ -1,11 +1,10 @@
 
-int NUMCIRCLES = 1000;
 
 // variables
-float[] thex = new float[NUMCIRCLES];
-float[] they = new float[NUMCIRCLES];
-float[] thev = new float[NUMCIRCLES];
-float[] thet = new float[NUMCIRCLES];
+float thex;
+float they;
+float thev;
+float thet;
 
 int i; // THE GREAT COUNTER VARIABLE
 
