@@ -1,0 +1,9 @@
+newyork.craigslist.org, new york
+sanfrancisco.craigslist.org, san francisco
+neworleans.craigslist.org, new orleans
+phoenix.craigslist.org, phoenix
+providence.craigslist.org, providence
+denver.craigslist.org, denver
+vancouver.craigslist.ca, vancouver
+london.craigslist.co.uk, london
+belfast.craigslist.co.uk, belfast
