@@ -22,12 +22,12 @@ class lukeMarkov
   // chain: append a string to existing markov chain
   private void chain(String s)
   {
-    ArrayList<String> temp = new ArrayList<String>(); // temporary array of strings
     String[] words = s.split(" "); // split the string into an array of words
 
     // go through all the words in the string
     for (int j=0; j<words.length-1; j++)
     {
+      ArrayList<String> temp = new ArrayList<String>(); // temporary array of strings
       // look for words already there
       int match = 0;
 
