@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : Sequencer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> Sequencer </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>import promidi.*;
+
+Sequencer sequencer;
+
+void setup(){
+  sequencer = new Sequencer();
+
+  MidiIO midiIO = MidiIO.getInstance();
+  midiIO.printDevices();
+  midiIO.closeOutput(1);
+  MidiOut test = midiIO.getMidiOut(1,1);
+
+  Track track = new Track("one", test);
+  track.setQuantization(Q._1_4);
+  track.addEvent(new Note(36, 127,40), 0);
+  track.addEvent(new Note(49, 80,40), 1); 
+  track.addEvent(new Note(41, 90,40), 2);
+  track.addEvent(new Note(46, 127,40), 3);
+
+  Song song = new Song("test", 120);
+  song.addTrack(track);
+  sequencer.setSong(song);
+  sequencer.setLoopStartPoint(0);
+  sequencer.setLoopEndPoint(512);
+  sequencer.setLoopCount(-1);
+}
+
+void mousePressed(){
+  if(mouseButton == LEFT) sequencer.start();
+  else sequencer.stop();
+}
+
+void draw(){
+}
+</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">A sequencer describes a device that records and plays back a sequence
+ of control information for any electronic musical instrument. The proMIDI
+ Sequencer allows you you to record and playback MIDI data.
+ <br><br>
+ The minimal time resolution of a sequencer is a tick. The proMIDI sequencer
+ has a rate of 512 ticks per bar.</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> constructors </div> 
+    <div id="pointcontent"> 
+      <pre>Sequencer();
+</pre> 
+    </div> 
+  </div> 
+    
+<div id="point"> 
+  <div id="pointname"> fields </div> 
+  <div id="members"> 
+<div id="membername"><a href="sequencer_field_loop_continuously.htm">LOOP_CONTINUOUSLY</a></div> 
+<div id="memberdesc">A value indicating that looping should continue
+ indefinitely rather than complete after a specific
+ number of loops.</div> 
+</div> 
+</div> 
+  
+<div id="point"> 
+  <div id="pointname"> methods </div> 
+  <div id="members"> 
+<div id="membername"><a href="sequencer_method_getloopendpoint.htm">getLoopEndPoint ( )</a></div> 
+<div id="memberdesc">Returns  the endpoint of the loop the sequencer should play</div> 
+ 
+<div id="membername"><a href="sequencer_method_getloopstartpoint.htm">getLoopStartPoint ( )</a></div> 
+<div id="memberdesc">Returns the startpoint of the loop the sequencer should play</div> 
+ 
+<div id="membername"><a href="sequencer_method_getsong.htm">getSong ( )</a></div> 
+<div id="memberdesc">Returns the song the sequencer is currently playing</div> 
+ 
+<div id="membername"><a href="sequencer_method_gettempoinbpm.htm">getTempoInBPM ( )</a></div> 
+<div id="memberdesc">Returns the actual tempo of the sequencer in BPM.</div> 
+ 
+<div id="membername"><a href="sequencer_method_gettickposition.htm">getTickPosition ( )</a></div> 
+<div id="memberdesc">Returns the actual position of the sequencer in the actual
+ song in ticks.</div> 
+ 
+<div id="membername"><a href="sequencer_method_isrunning.htm">isRunning ( )</a></div> 
+<div id="memberdesc">Use this method to see if the sequencer is running.</div> 
+ 
+<div id="membername"><a href="sequencer_method_loop.htm">loop ( )</a></div> 
+<div id="memberdesc">Tells the sequencer to permanently play the current loop</div> 
+ 
+<div id="membername"><a href="sequencer_method_noloop.htm">noLoop ( )</a></div> 
+<div id="memberdesc">Tells the sequencer to stop playing the loop</div> 
+ 
+<div id="membername"><a href="sequencer_method_setloopcount.htm">setLoopCount ( )</a></div> 
+<div id="memberdesc">Sets how often the loop of the sequencer has to be played.</div> 
+ 
+<div id="membername"><a href="sequencer_method_setloopendpoint.htm">setLoopEndPoint ( )</a></div> 
+<div id="memberdesc">Sets the endpoint of the loop the sequencer should play</div> 
+ 
+<div id="membername"><a href="sequencer_method_setloopstartpoint.htm">setLoopStartPoint ( )</a></div> 
+<div id="memberdesc">Sets the startpoint of the loop the sequencer should play</div> 
+ 
+<div id="membername"><a href="sequencer_method_setsong.htm">setSong ( )</a></div> 
+<div id="memberdesc">Sets the song the sequencer has to play.</div> 
+ 
+<div id="membername"><a href="sequencer_method_settempoinbpm.htm">setTempoInBPM ( )</a></div> 
+<div id="memberdesc">Sets the actual tempo of the sequencer in BPM.</div> 
+ 
+<div id="membername"><a href="sequencer_method_settickposition.htm">setTickPosition ( )</a></div> 
+<div id="memberdesc">Sets the actual position of the sequencer in ticks.</div> 
+ 
+<div id="membername"><a href="sequencer_method_start.htm">start ( )</a></div> 
+<div id="memberdesc">Starts the sequencer.</div> 
+ 
+<div id="membername"><a href="sequencer_method_stop.htm">stop ( )</a></div> 
+<div id="memberdesc">Stops the playback of the sequencer.</div> 
+</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent"><A href="song_class_song.htm">Song</A><BR>
+<A href="track_class_track.htm">Track</A><BR>
+</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>

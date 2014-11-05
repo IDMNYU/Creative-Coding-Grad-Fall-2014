@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : Sequencer : : setLoopEndPoint ( )</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> setLoopEndPoint ( ) </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>import promidi.*;
+
+Sequencer sequencer;
+
+void setup(){
+  sequencer = new Sequencer();
+
+  MidiIO midiIO = MidiIO.getInstance();
+  midiIO.printDevices();
+  midiIO.closeOutput(1);
+  MidiOut test = midiIO.getMidiOut(1,1);
+
+  Track track = new Track("one", test);
+  track.setQuantization(Q._1_4);
+  track.addEvent(new Note(36, 127,40), 0);
+  track.addEvent(new Note(49, 80,40), 1); 
+  track.addEvent(new Note(41, 90,40), 2);
+  track.addEvent(new Note(46, 127,40), 3);
+
+  Song song = new Song("test", 120);
+  song.addTrack(track);
+  sequencer.setSong(song);
+  sequencer.setLoopStartPoint(0);
+  sequencer.setLoopEndPoint(512);
+  sequencer.setLoopCount(-1);
+}
+
+void mousePressed(){
+  if(mouseButton == LEFT) sequencer.start();
+  else sequencer.stop();
+}
+
+void draw(){
+}
+</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">Sets the endpoint of the loop the sequencer should play</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> syntax </div> 
+    <div id="pointcontent"> 
+      <pre>setLoopEndPoint(tick);
+</pre> 
+    </div> 
+  </div> 
+   
+<div id="point"> 
+  <div id="pointname"> parameters </div> 
+  <div id="members">
+  <div id="membername">tick</div> 
+  <div id="memberdesc">long, the endpoint of the loop</div>
+</div> 
+</div> 
+  
+<div id="point"> 
+  <div id="pointname"> returns </div> 
+  <div id="pointcontent">None</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent"><A href="sequencer_class_sequencer.htm">Sequencer</A><BR>
+<A href="sequencer_method_setloopstartpoint.htm">setLoopStartPoint ( )</A><BR>
+<A href="sequencer_method_getloopstartpoint.htm">getLoopStartPoint ( )</A><BR>
+<A href="sequencer_method_getloopendpoint.htm">getLoopEndPoint ( )</A><BR>
+</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>

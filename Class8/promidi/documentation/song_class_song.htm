@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : Song</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> Song </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>None available</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">A song is a data structure containing musical information 
+ that can be played back by the proMIDI sequencer object. Specifically, the
+ song contains timing information and one or more tracks.  Each track consists of a
+ series of MIDI events (such as note-ons, note-offs, program changes, and meta-events).
+ <br><br>
+ A sequence can be built from scratch by adding new
+ tracks to an empty song, and adding MIDI events to these tracks.</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> constructors </div> 
+    <div id="pointcontent"> 
+      <pre>Song(resolution);
+Song(name, tempo);
+</pre> 
+    </div> 
+  </div> 
+   
+<div id="point"> 
+  <div id="pointname"> parameters </div> 
+  <div id="members">
+  <div id="membername">name</div> 
+  <div id="memberdesc">String, name of the song</div>
+
+  <div id="membername">tempo</div> 
+  <div id="memberdesc">float, tempo of the song</div>
+</div> 
+</div> 
+   
+<div id="point"> 
+  <div id="pointname"> methods </div> 
+  <div id="members"> 
+<div id="membername"><a href="song_method_addtrack.htm">addTrack ( )</a></div> 
+<div id="memberdesc">Adds a new track to a song.</div> 
+ 
+<div id="membername"><a href="song_method_getname.htm">getName ( )</a></div> 
+<div id="memberdesc">Returns the name of a song.</div> 
+ 
+<div id="membername"><a href="song_method_getnumberoftracks.htm">getNumberOfTracks ( )</a></div> 
+<div id="memberdesc">Returns the number of tracks of this song</div> 
+ 
+<div id="membername"><a href="song_method_gettempo.htm">getTempo ( )</a></div> 
+<div id="memberdesc">Returns the tempo of a song in BPM.</div> 
+ 
+<div id="membername"><a href="song_method_gettrack.htm">getTrack ( )</a></div> 
+<div id="memberdesc">Returns the track with the given number</div> 
+ 
+<div id="membername"><a href="song_method_removetrack.htm">removeTrack ( )</a></div> 
+<div id="memberdesc">Removes a track from a song</div> 
+ 
+<div id="membername"><a href="song_method_setname.htm">setName ( )</a></div> 
+<div id="memberdesc">Sets the name name of a song.</div> 
+ 
+<div id="membername"><a href="song_method_settempo.htm">setTempo ( )</a></div> 
+<div id="memberdesc">Sets the tempo of a song.</div> 
+</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent">&nbsp;</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>

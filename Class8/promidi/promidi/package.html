@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>packagehtml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+The midi library allows Processing and every other Java Application
+to send and receive Midiinformation. 
+Mididata can be received and send by installed Midi-Ports.<br>
+<br> 
+To install unzip the file into your processing libraries folder.<br>
+<br>
+The intention of that library was to synchronize Processing via Midi 
+to music and use it for live visuals. Another possibility is the generation of
+Midi Data to make sound for your visuals<br>
+<br>
+There are a lot of changes in the new proMIDI version so you have a new
+plug method, where you can directly plug method that handle the incoming midi
+data. You no longer need to take care for sending note offs, instead you
+create notes with a length, the notes are buffered and proMIDI automatically
+send the note off. Also the opening of in and outputs has changed. You can now
+open only a certain channel of a midiport.
+<br><br>
+The biggest change however is that proMIDI does now include a sequencer and
+tracks and patterns to create musical structures. There will follow methods
+for recording events and playback midifiles soon.<br><br>
+Download: <a href="promidi.zip">promidi 2.0</a><br>
+<br>
+This are older versions  of proMIDI:<br>
+<br>
+<a href="../promidi_1">promidi 1.0</a><br>
+<a href="../promidi_0">promidi 0.0</a><br>
+<br>
+@libname proMIDI 
+</body>
+</html>

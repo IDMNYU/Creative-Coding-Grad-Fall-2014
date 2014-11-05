@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="page">
+  <div id="describtionIndex">
+    <div id="libnameIndex"><img src="images/promidi.gif" width="259" height="40"></div>
+    <div id="textIndex">The midi library allows Processing and every other Java Application
+to send and receive Midiinformation. 
+Mididata can be received and send by installed Midi-Ports.<br>
+<br> 
+To install unzip the file into your processing libraries folder.<br>
+<br>
+The intention of that library was to synchronize Processing via Midi 
+to music and use it for live visuals. Another possibility is the generation of
+Midi Data to make sound for your visuals<br>
+<br>
+There are a lot of changes in the new proMIDI version so you have a new
+plug method, where you can directly plug method that handle the incoming midi
+data. You no longer need to take care for sending note offs, instead you
+create notes with a length, the notes are buffered and proMIDI automatically
+send the note off. Also the opening of in and outputs has changed. You can now
+open only a certain channel of a midiport.
+<br><br>
+The biggest change however is that proMIDI does now include a sequencer and
+tracks and patterns to create musical structures. There will follow methods
+for recording events and playback midifiles soon.<br><br>
+Download: <a href="promidi.zip">promidi 2.0</a><br>
+<br>
+This are older versions  of proMIDI:<br>
+<br>
+<a href="../promidi_1">promidi 1.0</a><br>
+<a href="../promidi_2">promidi 0.0</a><br>
+<br></div>
+  </div>
+  <div id="links">
+    <div id="classlinks"><div id="classname"><a href="track_class_track.htm">Track</a></div><a href="track_method_addevent.htm">addEvent ( )</a><br><a href="track_method_addpattern.htm">addPattern ( )</a><br><a href="track_method_getmidiout.htm">getMidiOut ( )</a><br><a href="track_method_getname.htm">getName ( )</a><br><a href="track_method_getquantization.htm">getQuantization ( )</a><br><a href="track_method_removeevent.htm">removeEvent ( )</a><br><a href="track_method_removepattern.htm">removePattern ( )</a><br><a href="track_method_setmidiout.htm">setMidiOut ( )</a><br><a href="track_method_setname.htm">setName ( )</a><br><a href="track_method_setquantization.htm">setQuantization ( )</a><br><a href="track_method_size.htm">size ( )</a><br><a href="track_method_ticks.htm">ticks ( )</a><br></div><div id="classlinks"><div id="classname"><a href="song_class_song.htm">Song</a></div><a href="song_method_addtrack.htm">addTrack ( )</a><br><a href="song_method_getname.htm">getName ( )</a><br><a href="song_method_getnumberoftracks.htm">getNumberOfTracks ( )</a><br><a href="song_method_gettempo.htm">getTempo ( )</a><br><a href="song_method_gettrack.htm">getTrack ( )</a><br><a href="song_method_removetrack.htm">removeTrack ( )</a><br><a href="song_method_setname.htm">setName ( )</a><br><a href="song_method_settempo.htm">setTempo ( )</a><br></div><div id="classlinks"><div id="classname"><a href="sequencer_class_sequencer.htm">Sequencer</a></div><a href="sequencer_field_loop_continuously.htm">LOOP_CONTINUOUSLY</a><br><a href="sequencer_method_getloopcount.htm">getLoopCount ( )</a><br><a href="sequencer_method_getloopendpoint.htm">getLoopEndPoint ( )</a><br><a href="sequencer_method_getloopstartpoint.htm">getLoopStartPoint ( )</a><br><a href="sequencer_method_getsong.htm">getSong ( )</a><br><a href="sequencer_method_gettempoinbpm.htm">getTempoInBPM ( )</a><br><a href="sequencer_method_gettickposition.htm">getTickPosition ( )</a><br><a href="sequencer_method_isrunning.htm">isRunning ( )</a><br><a href="sequencer_method_loop.htm">loop ( )</a><br><a href="sequencer_method_noloop.htm">noLoop ( )</a><br><a href="sequencer_method_setloopcount.htm">setLoopCount ( )</a><br><a href="sequencer_method_setloopendpoint.htm">setLoopEndPoint ( )</a><br><a href="sequencer_method_setloopstartpoint.htm">setLoopStartPoint ( )</a><br><a href="sequencer_method_setsong.htm">setSong ( )</a><br><a href="sequencer_method_settempoinbpm.htm">setTempoInBPM ( )</a><br><a href="sequencer_method_settickposition.htm">setTickPosition ( )</a><br><a href="sequencer_method_start.htm">start ( )</a><br><a href="sequencer_method_stop.htm">stop ( )</a><br></div><div id="classlinks"><div id="classname"><a href="q_class_q.htm">Q</a></div><a href="q_field_none.htm">NONE</a><br><a href="q_field__1_16.htm">_1_16</a><br><a href="q_field__1_2.htm">_1_2</a><br><a href="q_field__1_3.htm">_1_3</a><br><a href="q_field__1_32.htm">_1_32</a><br><a href="q_field__1_4.htm">_1_4</a><br><a href="q_field__1_6.htm">_1_6</a><br><a href="q_field__1_64.htm">_1_64</a><br><a href="q_field__1_8.htm">_1_8</a><br></div><div id="classlinks"><div id="classname"><a href="programchange_class_programchange.htm">ProgramChange</a></div><a href="programchange_method_getnumber.htm">getNumber ( )</a><br></div><div id="classlinks"><div id="classname"><a href="pattern_class_pattern.htm">Pattern</a></div><a href="pattern_method_addevent.htm">addEvent ( )</a><br><a href="pattern_method_addpattern.htm">addPattern ( )</a><br><a href="pattern_method_getname.htm">getName ( )</a><br><a href="pattern_method_getquantization.htm">getQuantization ( )</a><br><a href="pattern_method_removeevent.htm">removeEvent ( )</a><br><a href="pattern_method_removepattern.htm">removePattern ( )</a><br><a href="pattern_method_setname.htm">setName ( )</a><br><a href="pattern_method_setquantization.htm">setQuantization ( )</a><br><a href="pattern_method_size.htm">size ( )</a><br><a href="pattern_method_ticks.htm">ticks ( )</a><br></div><div id="classlinks"><div id="classname"><a href="papplet_class_papplet.htm">PApplet</a></div><a href="papplet_method_controllerin.htm">controllerIn ( )</a><br><a href="papplet_method_noteoff.htm">noteOff ( )</a><br><a href="papplet_method_noteon.htm">noteOn ( )</a><br><a href="papplet_method_programchange.htm">programChange ( )</a><br></div><div id="classlinks"><div id="classname"><a href="note_class_note.htm">Note</a></div><a href="note_method_getnotelength.htm">getNoteLength ( )</a><br><a href="note_method_getpitch.htm">getPitch ( )</a><br><a href="note_method_getvelocity.htm">getVelocity ( )</a><br><a href="note_method_setlength.htm">setLength ( )</a><br><a href="note_method_setpitch.htm">setPitch ( )</a><br><a href="note_method_setvelocity.htm">setVelocity ( )</a><br></div><div id="classlinks"><div id="classname"><a href="midiout_class_midiout.htm">MidiOut</a></div><a href="midiout_method_equals.htm">equals ( )</a><br><a href="midiout_method_sendcontroller.htm">sendController ( )</a><br><a href="midiout_method_sendnote.htm">sendNote ( )</a><br><a href="midiout_method_sendprogramchange.htm">sendProgramChange ( )</a><br></div><div id="classlinks"><div id="classname"><a href="midiio_class_midiio.htm">MidiIO</a></div><a href="midiio_method_closeinput.htm">closeInput ( )</a><br><a href="midiio_method_getinputdevicename.htm">getInputDeviceName ( )</a><br><a href="midiio_method_getinstance.htm">getInstance ( )</a><br><a href="midiio_method_getmidiout.htm">getMidiOut ( )</a><br><a href="midiio_method_getoutputdevicename.htm">getOutputDeviceName ( )</a><br><a href="midiio_method_numberofinputdevices.htm">numberOfInputDevices ( )</a><br><a href="midiio_method_numberofoutputdevices.htm">numberOfOutputDevices ( )</a><br><a href="midiio_method_openinput.htm">openInput ( )</a><br><a href="midiio_method_plug.htm">plug ( )</a><br><a href="midiio_method_printdevices.htm">printDevices ( )</a><br><a href="midiio_method_printinputdevices.htm">printInputDevices ( )</a><br><a href="midiio_method_printoutputdevices.htm">printOutputDevices ( )</a><br></div><div id="classlinks"><div id="classname"><a href="controller_class_controller.htm">Controller</a></div><a href="controller_method_getnumber.htm">getNumber ( )</a><br><a href="controller_method_getvalue.htm">getValue ( )</a><br><a href="controller_method_setnumber.htm">setNumber ( )</a><br><a href="controller_method_setvalue.htm">setValue ( )</a><br></div>
+  </div>
+</div>
+</body>
+</html>

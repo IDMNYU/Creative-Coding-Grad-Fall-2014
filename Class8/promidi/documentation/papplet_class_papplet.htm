@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : PApplet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> PApplet </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>import promidi.*;
+
+MidiIO midiIO;
+
+void setup(){
+  size(128*5,128*5);
+  smooth();
+  background(0);
+  
+  midiIO = MidiIO.getInstance(this);
+  println("printPorts of midiIO");
+  midiIO.printDevices();
+  midiIO.openInput(0,0);
+}
+
+void draw(){
+
+}
+
+void noteOn(
+  Note note,
+  int deviceNumber,
+  int midiChannel
+){
+  int vel = note.getVelocity();
+  int pit = note.getPitch();
+  
+  fill(255,vel*2,pit*2,vel*2);
+  stroke(255,vel);
+  ellipse(vel*5,pit*5,30,30);
+}
+
+void noteOff(
+  Note note,
+  int deviceNumber,
+  int midiChannel
+){
+  int pit = note.getPitch();
+  
+  fill(255,pit*2,pit*2,pit*2);
+  stroke(255,pit);
+  ellipse(pit*5,pit*5,30,30);
+}
+
+void controllerIn(
+  Controller controller,
+  int deviceNumber,
+  int midiChannel
+){
+  int num = controller.getNumber();
+  int val = controller.getValue();
+  
+  fill(255,num*2,val*2,num*2);
+  stroke(255,num);
+  ellipse(num*5,val*5,30,30);
+}
+
+void programChange(
+  ProgramChange programChange,
+  int deviceNumber,
+  int midiChannel
+){
+  int num = programChange.getNumber();
+  
+  fill(255,num*2,num*2,num*2);
+  stroke(255,num);
+  ellipse(num*5,num*5,30,30);
+}
+</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">PApplet is your processing application. You can implement different 
+ methods to react on incoming midi messages. proMIDI is calling these 
+ methods on incoming midi data.<br>
+ You also use the plug function to forward midiInformation of your
+ choice to the desired object and method.</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> constructors </div> 
+    <div id="pointcontent"> 
+      <pre>PApplet();
+</pre> 
+    </div> 
+  </div> 
+     
+<div id="point"> 
+  <div id="pointname"> methods </div> 
+  <div id="members"> 
+<div id="membername"><a href="papplet_method_controllerin.htm">controllerIn ( )</a></div> 
+<div id="memberdesc">The controllerIn() function is called everytime a control change command comes through one 
+ of your opened midi inputs.</div> 
+ 
+<div id="membername"><a href="papplet_method_noteoff.htm">noteOff ( )</a></div> 
+<div id="memberdesc">The noteOff() function is called everytime a note off command comes through one 
+ of your opened midi inputs.</div> 
+ 
+<div id="membername"><a href="papplet_method_noteon.htm">noteOn ( )</a></div> 
+<div id="memberdesc">The noteOn() function is called everytime a note on command comes through one 
+ of your opened midi inputs.</div> 
+ 
+<div id="membername"><a href="papplet_method_programchange.htm">programChange ( )</a></div> 
+<div id="memberdesc">The programChange() function is called everytime a program change command comes through one 
+ of your opened midi inputs.</div> 
+</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent"><A href="midiio_class_midiio.htm">MidiIO</A><BR>
+<A href="note_class_note.htm">Note</A><BR>
+<A href="controller_class_controller.htm">Controller</A><BR>
+<A href="programchange_class_programchange.htm">ProgramChange</A><BR>
+</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>

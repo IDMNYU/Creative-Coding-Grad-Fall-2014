@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : MidiOut : : sendNote ( )</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> sendNote ( ) </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>import processing.opengl.*;
+import promidi.*;
+
+MidiIO midiIO;
+MidiOut midiOut;
+Bowl[] bowl;
+
+void setup(){
+  size(128*5,128*5);
+  background(0);
+  smooth();
+
+  //get an instance of MidiIO
+  midiIO = MidiIO.getInstance(this);
+  
+  //print a list with all available devices
+  midiIO.printDevices();
+  
+  //open an midiout using the first device and the first channel
+  midiOut = midiIO.getMidiOut(0,0);
+
+  bowl = new Bowl[30];
+  for(int i = 0;i &lt; bowl.length;i++){
+    bowl[i] = new Bowl(i);
+  }
+  noStroke();
+}
+
+void draw(){
+  background(0);
+  for(int i = 0;i &lt; bowl.length;i++){
+    bowl[i].move();
+    bowl[i].paint();
+  }
+
+}
+
+class Bowl{
+  float xSpeed;
+  float ySpeed;
+  float xPos;
+  float yPos;
+  Note note;
+  color col;
+  int myNumber;
+
+  Bowl(int number){
+    xSpeed = random(2,20);
+    ySpeed = random(2,20);
+    note = new Note(0,0,0);
+    col = color(
+      random(0,255),
+      random(0,255),
+      random(0,255)
+    );
+    myNumber = number;
+  }
+
+  void move(){
+    xPos += xSpeed;
+    yPos += ySpeed;
+    midiOut.sendController(
+      new Controller(0,myNumber,int(xPos/6)+2)
+    );
+    
+    if(xPos > width || xPos &lt; 0){
+      xSpeed = -xSpeed;
+      xPos += xSpeed;
+
+      playNote();
+    }
+    if(yPos > width || yPos &lt; 0){
+      ySpeed = -ySpeed;
+      yPos += ySpeed;
+      playNote();
+      midiOut.sendProgramChange(
+        new ProgramChange(0,myNumber)
+      );
+    }
+  }
+
+  void playNote(){
+    note = new Note(int(xPos/5f),int(yPos/10f)+60,int(random(1000)));
+    midiOut.sendNote(note);
+  }
+
+  void paint(){
+    fill(col);
+    ellipse(xPos,yPos,20,20);
+  }
+}
+</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">With this method you can send a note on to your midi output. You can send note on commands
+ to trigger midi soundsources. Be aware that you have to take care to send note off commands
+ to release the notes otherwise you get midi hang ons.</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> syntax </div> 
+    <div id="pointcontent"> 
+      <pre>sendNote(i_note);
+</pre> 
+    </div> 
+  </div> 
+   
+<div id="point"> 
+  <div id="pointname"> parameters </div> 
+  <div id="members">
+  <div id="membername">i_note</div> 
+  <div id="memberdesc">Note, the note you want to send the note on for</div>
+</div> 
+</div> 
+  
+<div id="point"> 
+  <div id="pointname"> returns </div> 
+  <div id="pointcontent">None</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent"><A href="midiout_class_midiout.htm">MidiOut</A><BR>
+<A href="note_class_note.htm">Note</A><BR>
+<A href="midiout_method_sendcontroller.htm">sendController ( )</A><BR>
+<A href="midiout_method_sendprogramchange.htm">sendProgramChange ( )</A><BR>
+</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>

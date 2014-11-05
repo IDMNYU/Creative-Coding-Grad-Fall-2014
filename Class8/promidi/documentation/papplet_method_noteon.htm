@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>proMIDI : : PApplet : : noteOn ( )</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<div id="page"> 
+  <div id="describtion"> 
+    <div id="libname"><img src="images/promidi.gif" width="259" height="40"></div> 
+    <div id="indexlink"><a href="index.htm"><img src="images/index.gif"></a></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> name </div> 
+    <div id="pointcontent"><div id="membertitle"> noteOn ( ) </div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"><a href="#" id="exampleButton" onClick="handleExample()">openExample</a></div> 
+    <div id="pointcontent"><div id="example"><pre>import promidi.*;
+
+MidiIO midiIO;
+
+void setup(){
+  size(128*5,128*5);
+  smooth();
+  background(0);
+  
+  midiIO = MidiIO.getInstance(this);
+  println("printPorts of midiIO");
+  midiIO.printDevices();
+  midiIO.openInput(0,0);
+}
+
+void draw(){
+
+}
+
+void noteOn(
+  Note note,
+  int deviceNumber,
+  int midiChannel
+){
+  int vel = note.getVelocity();
+  int pit = note.getPitch();
+  
+  fill(255,vel*2,pit*2,vel*2);
+  stroke(255,vel);
+  ellipse(vel*5,pit*5,30,30);
+}
+
+void noteOff(
+  Note note,
+  int deviceNumber,
+  int midiChannel
+){
+  int pit = note.getPitch();
+  
+  fill(255,pit*2,pit*2,pit*2);
+  stroke(255,pit);
+  ellipse(pit*5,pit*5,30,30);
+}
+
+void controllerIn(
+  Controller controller,
+  int deviceNumber,
+  int midiChannel
+){
+  int num = controller.getNumber();
+  int val = controller.getValue();
+  
+  fill(255,num*2,val*2,num*2);
+  stroke(255,num);
+  ellipse(num*5,val*5,30,30);
+}
+
+void programChange(
+  ProgramChange programChange,
+  int deviceNumber,
+  int midiChannel
+){
+  int num = programChange.getNumber();
+  
+  fill(255,num*2,num*2,num*2);
+  stroke(255,num);
+  ellipse(num*5,num*5,30,30);
+}
+</pre></div></div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> description </div> 
+    <div id="pointcontent">The noteOn() function is called everytime a note on command comes through one 
+ of your opened midi inputs.</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> syntax </div> 
+    <div id="pointcontent"> 
+      <pre>noteOn(note, deviceNumber, midiChannel);
+</pre> 
+    </div> 
+  </div> 
+   
+<div id="point"> 
+  <div id="pointname"> parameters </div> 
+  <div id="members">
+  <div id="membername">note</div> 
+  <div id="memberdesc">Note: the incoming note on</div>
+
+  <div id="membername">deviceNumber</div> 
+  <div id="memberdesc">int: the number of the device the note was send through</div>
+
+  <div id="membername">midiChannel</div> 
+  <div id="memberdesc">int: the midi channel the note was send through</div>
+</div> 
+</div> 
+  
+<div id="point"> 
+  <div id="pointname"> returns </div> 
+  <div id="pointcontent">None</div> 
+</div> 
+
+  <div id="point"> 
+    <div id="pointname"> usage </div> 
+    <div id="pointcontent">Web & Application</div> 
+  </div> 
+  <div id="point"> 
+    <div id="pointname"> related </div> 
+    <div id="pointcontent"><A href="note_class_note.htm">Note</A><BR>
+<A href="papplet_method_noteoff.htm">noteOff ( )</A><BR>
+<A href="papplet_method_controllerin.htm">controllerIn ( )</A><BR>
+<A href="papplet_method_programchange.htm">programChange ( )</A><BR>
+</div> 
+  </div> 
+</div> 
+</body>
+<script language="JavaScript" src="script.js" type="text/javascript"></script>
+</html>
