@@ -1,18 +1,19 @@
-
-//
-// HTTP Portion
-//
-
+// the grand scheme of things
 var http = require('http');
 var httpServer = http.createServer(dothestuff);
 
-var fs = require('fs'); // Using the filesystem module
-
-// heroku mojo
+// port mojo
 httpServer.listen(5000);
 
+//
+// HTTP Portion - this deals with HTTP requests from everyone's browsers
+//
+
+var fs = require('fs'); // Using the filesystem module
+
+// this responds to browsers:
 function dothestuff(req, res) {
-	// Read index.html
+	// serve up index.html
 	fs.readFile(__dirname + '/index.html', 
 		// Callback function for reading
 		function (err, data) {
@@ -27,7 +28,7 @@ function dothestuff(req, res) {
 }
 
 //
-// SOCKET STUFF:
+// SOCKET STUFF - this responds to websocket data from the raspberry pi
 //
 
 var io = require('socket.io').listen(httpServer);
@@ -36,7 +37,6 @@ io.sockets.on('connection',
 	function (socket) {
 	
 		console.log("We have a new client: " + socket.id);
-
 
 		socket.on('light', function(data) {
 			io.emit('light', data);
@@ -66,3 +66,4 @@ io.sockets.on('connection',
 		});
 	}
 );
+
